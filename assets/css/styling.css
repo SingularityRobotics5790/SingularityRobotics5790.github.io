@@ -11,3 +11,22 @@
     /* Maintain the theme's max width */
     max-width: 640px; 
 }
+
+/* Add this block to your assets/css/style.scss */
+
+a:hover {
+    /* 1. Reset font weight (undoes bolding) */
+    font-weight: 400 !important; 
+    
+    /* 2. Reset font size (undoes enlargement) */
+    font-size: 1em !important; 
+    
+    /* 3. Ensure the text decoration remains consistent */
+    text-decoration: underline;
+}
+
+/* Optional: If the link is in the header, apply specific overrides */
+header a:hover {
+    font-size: 1.2em; /* The theme uses this size on hover for headers, so we override it */
+    font-weight: 400 !important; 
+}
