@@ -1,32 +1,57 @@
 ---
 ---
-/* Import the original theme's styling to preserve the look */
+/* 1. Import the original theme's styling to preserve the overall look */
 @import "jekyll-theme-minimal";
 
-/* Use the most aggressive selector to force centering */
+/* 2. Aggressive Centering Override */
 .wrapper {
-    /* Use !important to override any theme styles with higher precedence */
+    /* Use !important to force centering of the main content block */
     margin-right: auto !important;
     margin-left: auto !important; 
     /* Maintain the theme's max width */
     max-width: 640px; 
+    /* Add slight padding on the sides for small screens when not using the media query fix */
+    padding: 0 10px; 
 }
 
-/* Add this block to your assets/css/style.scss */
-
+/* 3. Hyperlink Hover Reset (Unbold/Unenlarge) */
 a:hover {
-    /* 1. Reset font weight (undoes bolding) */
+    /* Reset font weight to non-bold */
     font-weight: 400 !important; 
-    
-    /* 2. Reset font size (undoes enlargement) */
+    /* Reset font size to default */
     font-size: 1em !important; 
-    
-    /* 3. Ensure the text decoration remains consistent */
+    /* Maintain underline */
     text-decoration: underline;
 }
 
-/* Optional: If the link is in the header, apply specific overrides */
-header a:hover {
-    font-size: 1.2em; /* The theme uses this size on hover for headers, so we override it */
-    font-weight: 400 !important; 
+/* 4. Mobile Responsiveness Fix */
+@media screen and (max-width: 768px) {
+    
+    /* Allow wrapper to fill the screen on small devices */
+    .wrapper {
+        max-width: 100%; 
+        padding: 0 15px; 
+    }
+    
+    /* Remove the fixed width and float for the header/sidebar */
+    header {
+        float: none; 
+        width: 100%; 
+        padding: 1rem 0;
+        margin: 0;
+        text-align: center; 
+    }
+    
+    /* Remove the content section float/margin adjustments */
+    section {
+        float: none;
+        width: 100%; 
+        padding-top: 1rem;
+    }
+    
+    /* Prevent title from being cut off */
+    header h1 {
+        white-space: normal;
+        word-wrap: break-word;
+    }
 }
